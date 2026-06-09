@@ -46,6 +46,22 @@ async function main() {
 
   console.log('Usuario admin criado:', usuario.email);
 
+  // Criar usuario contador (para login supervisionado)
+  const contador = await prisma.usuarios.create({
+    data: {
+      empresaId: empresa.id,
+      tenantId: empresa.tenantId,
+      nome: 'Contador Teste',
+      email: 'contador@contaflow.com.br',
+      senha: senhaHash,
+      cpf: '987.654.321-00',
+      role: 'CONTADOR_ANALISTA',
+      status: 'ATIVO',
+    },
+  });
+
+  console.log('Usuario contador criado:', contador.email);
+
   // Criar plano de contas
   const contas = [
     { codigo: '1', descricao: 'ATIVO', tipo: 'ATIVO', natureza: 'DEBITO', nivel: 1, aceitaLancamento: false },
