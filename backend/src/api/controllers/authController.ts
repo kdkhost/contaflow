@@ -140,4 +140,57 @@ export class AuthController {
     });
     return reply.status(200).send({ data: usuarios });
   }
+
+  async forgotPassword(request: FastifyRequest, reply: FastifyReply) {
+    const { email } = z.object({ email: z.string().email() }).parse(request.body);
+    const { getDatabase } = await import('../../utils/database');
+    const db = getDatabase();
+
+    const usuario = await (db as any).usuarios.findFirst({ where: { email } });
+    if (!usuario) {
+      // Por seguranca, retorna sucesso mesmo se o email nao existir
+      return reply.status(200).send({ message: 'Se o email existir, um codigo foi enviado.' });
+    }
+
+    // Gera codigo de 6 digitos
+    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    const expires = new Date(Date.now() + 15 * 60 * 1000); // 15 minutos
+
+    await (db as any).passwordResetCodes.upsert({
+      where: { email },
+      update: { code, expiresAt: expires, used: false },
+      create: { email, code, expiresAt: expires, used: false },
+    });
+
+    // Em producao, enviaria email com o codigo
+    console.log(`[RESET CODE] ${email}: ${code}`);
+
+    return reply.status(200).send({ message: 'Codigo enviado para seu email.', _debug_code: code });
+  }
+
+  async resetPassword(request: FastifyRequest, reply: FastifyReply) {
+    const { email, code, newPassword } = z.object({
+      email: z.string().email(),
+      code: z.string().length(6),
+      newPassword: z.string().min(8),
+    }).parse(request.body);
+
+    const { getDatabase } = await import('../../utils/database');
+    const { hash } = await import('bcryptjs');
+    const db = getDatabase();
+
+    const record = await (db as any).passwordResetCodes.findFirst({
+      where: { email, code, used: false },
+      orderBy: { criadoEm: 'desc' },
+    });
+
+    if (!record) return reply.status(400).send({ message: 'Codigo invalido' });
+    if (new Date(record.expiresAt) < new Date()) return reply.status(400).send({ message: 'Codigo expirado' });
+
+    const senhaHash = await hash(newPassword, 12);
+    await (db as any).usuarios.update({ where: { email }, data: { senha: senhaHash } });
+    await (db as any).passwordResetCodes.update({ where: { id: record.id }, data: { used: true } });
+
+    return reply.status(200).send({ message: 'Senha redefinida com sucesso!' });
+  }
 }

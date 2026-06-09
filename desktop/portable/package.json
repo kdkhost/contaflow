@@ -2,17 +2,57 @@
   "name": "@contaflow/portable",
   "version": "1.0.0",
   "description": "ContaFlow - Modo Portatil (Pendrive)",
-  "scripts": {
-    "build": "pkg dist/index.js --targets node20-win-x64 --output contaflow-portable.exe",
-    "build:linux": "pkg dist/index.js --targets node20-linux-x64 --output contaflow-portable",
-    "package": "npm run build"
+  "main": "main.js",
+  "author": {
+    "name": "Marcelo Desenvolvedor",
+    "email": "mareclobradrj@gmail.com"
   },
-  "bin": "start.js",
-  "pkg": {
-    "assets": ["frontend/**/*", "server/**/*"],
-    "outputPath": "dist-portable"
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder --win portable",
+    "build:dir": "electron-builder --win dir"
+  },
+  "build": {
+    "appId": "com.contaflow.portable",
+    "productName": "ContaFlow-Portable",
+    "copyright": "Copyright © 2026 Marcelo Desenvolvedor",
+    "directories": {
+      "output": "../dist-portable"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../../backend",
+        "to": "server/backend",
+        "filter": ["**/*", "!node_modules", "!.git", "!data/*.db"]
+      },
+      {
+        "from": "../../frontend/dist",
+        "to": "server/frontend",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "ContaFlow-Portable-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "ContaFlow-Portable-${version}.${ext}",
+      "splashImage": "assets/splash.png"
+    }
   },
   "devDependencies": {
-    "pkg": "^5.8.1"
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.3"
   }
 }

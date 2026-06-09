@@ -81,6 +81,7 @@ const menuItems: MenuItem[] = [
       { path: '/sistema/notificacoes', label: 'Notificacoes' },
       { path: '/sistema/kanban', label: 'Quadro Kanban' },
       { path: '/sistema/perfil', label: 'Meu Perfil' },
+      { path: '/sistema/configuracoes', label: 'Configuracoes' },
     ],
   },
 ];

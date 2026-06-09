@@ -1,0 +1,31 @@
+TERMOS DE USO - ContaFlow v1.0.0
+===================================
+
+1. ACEITACAO DOS TERMOS
+Ao instalar e utilizar o ContaFlow, voce concorda com estes Termos de Uso.
+Se nao concorda, nao instale ou utilize o software.
+
+2. LICENCA DE USO
+Este software e licenciado para uso pessoal ou comercial, nao sendo permitida
+a redistribuicao, aluguel ou revenda sem autorizacao expressa do desenvolvedor.
+
+3. DADOS E PRIVACIDADE
+Todos os dados sao armazenados localmente em sua maquina, em pastas criptografadas.
+Nenhum dado e enviado para servidores externos. Voce e o unico responsavel
+pela seguranca dos seus dados.
+
+4. LIMITACAO DE RESPONSABILIDADE
+O software e fornecido "COMO ESTA", sem garantias de qualquer tipo, expressas ou
+implícitas. O desenvolvedor nao se responsabiliza por perdas de dados ou danos
+decorrentes do uso do software.
+
+5. BACKUP
+Recomenda-se fortemente a realizacao periodica de backups dos dados.
+O software nao se responsabiliza por perdas de dados.
+
+6. ATUALIZACOES
+O desenvolvedor reserva-se o direito de atualizar o software a qualquer momento,
+podendo adicionar ou remover funcionalidades.
+
+7. SUPORTE
+Suporte tecnico disponivel via email: mareclobradrj@gmail.com

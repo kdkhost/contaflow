@@ -1,6 +1,7 @@
 import { ReactNode, useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import Footer from './Footer';
 
 interface LayoutProps {
   children: ReactNode;
@@ -54,9 +55,10 @@ export default function Layout({ children, theme, onToggleTheme, onLogout }: Lay
       />
 
       <div className={`content-wrapper ${isMobile ? '' : sidebarCollapsed ? 'ml-[72px]' : 'ml-[260px]'}`}>
-        <section className="content" style={{ padding: '1.5rem' }}>
+        <section className="content" style={{ padding: '1.5rem', paddingBottom: '3.5rem' }}>
           {children}
         </section>
+        <Footer />
       </div>
     </div>
   );

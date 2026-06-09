@@ -26,7 +26,9 @@ import CertidoesPage from './pages/Sistema/CertidoesPage';
 import NotificacoesPage from './pages/Sistema/NotificacoesPage';
 import KanbanPage from './pages/Sistema/KanbanPage';
 import PerfilPage from './pages/Sistema/PerfilPage';
+import ConfiguracoesPage from './pages/Sistema/ConfiguracoesPage';
 import SupervisionadoPage from './pages/Login/SupervisionadoPage';
+import ForgotPasswordPage from './pages/Login/ForgotPasswordPage';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -68,6 +70,7 @@ function App() {
     return (
       <Routes>
         <Route path="/login-supervisionado" element={<SupervisionadoPage onLogin={() => setIsAuthenticated(true)} />} />
+        <Route path="/esqueci-senha" element={<ForgotPasswordPage />} />
         <Route path="*" element={<LoginPage onLogin={() => setIsAuthenticated(true)} />} />
       </Routes>
     );
@@ -101,6 +104,7 @@ function App() {
         <Route path="/sistema/notificacoes" element={<NotificacoesPage />} />
         <Route path="/sistema/kanban" element={<KanbanPage />} />
         <Route path="/sistema/perfil" element={<PerfilPage />} />
+        <Route path="/sistema/configuracoes" element={<ConfiguracoesPage />} />
       </Routes>
     </Layout>
   );

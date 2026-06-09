@@ -1,51 +1,79 @@
 {
   "name": "@contaflow/desktop",
   "version": "1.0.0",
-  "description": "ContaFlow - Modo Desktop",
+  "description": "ContaFlow - Sistema Contabil Inteligente",
   "main": "main.js",
-  "scripts": {
-    "dev": "electron .",
-    "build": "electron-builder",
-    "build:win": "electron-builder --win",
-    "build:mac": "electron-builder --mac",
-    "build:linux": "electron-builder --linux"
+  "author": {
+    "name": "Marcelo Desenvolvedor",
+    "email": "mareclobradrj@gmail.com"
   },
-  "build": {
-    "appId": "com.contaflow.desktop",
-    "productName": "ContaFlow",
-    "directories": {
-      "output": "dist-electron"
-    },
-    "files": [
-      "main.js",
-      "preload.js",
-      "frontend/**/*"
-    ],
-    "win": {
-      "target": "nsis",
-      "icon": "assets/icon.ico"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "ContaFlow"
-    },
-    "mac": {
-      "target": "dmg",
-      "icon": "assets/icon.icns"
-    },
-    "linux": {
-      "target": "AppImage",
-      "icon": "assets/icon.png"
-    }
+  "scripts": {
+    "dev": "set PORTABLE_MODE=0 && electron .",
+    "build": "electron-builder --win",
+    "build:portable": "cross-env PORTABLE_MODE=1 electron-builder --win --config portable.config.js",
+    "build:all": "npm run build && npm run build:portable"
   },
   "dependencies": {
     "electron-store": "^8.1.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "electron": "^29.0.0",
     "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.contaflow.desktop",
+    "productName": "ContaFlow",
+    "copyright": "Copyright © 2026 Marcelo Desenvolvedor",
+    "directories": {
+      "output": "../dist-electron"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "installer.html",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../../backend",
+        "to": "server/backend",
+        "filter": ["**/*", "!node_modules", "!.git", "!data/*.db"]
+      },
+      {
+        "from": "../../frontend/dist",
+        "to": "server/frontend",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "requestedExecutionLevel": "requireAdministrator",
+      "artifactName": "ContaFlow-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ContaFlow",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "license": "LICENSE.txt",
+      "language": "1046",
+      "installerLanguages": ["1046"],
+      "include": "installer.nsh"
+    },
+    "portable": {
+      "artifactName": "ContaFlow-Portable-${version}.${ext}"
+    }
   }
 }

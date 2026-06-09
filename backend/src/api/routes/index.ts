@@ -8,6 +8,7 @@ import { graphifyRoutes } from './graphify.routes';
 import { integracoesRoutes } from './integracoes.routes';
 import { dashboardRoutes } from './dashboard.routes';
 import { kanbanRoutes } from './kanban.routes';
+import { configuracoesRoutes } from './configuracoes.routes';
 
 export async function setupRoutes(app: FastifyInstance) {
   app.register(authRoutes, { prefix: '/api/auth' });
@@ -19,4 +20,5 @@ export async function setupRoutes(app: FastifyInstance) {
   app.register(integracoesRoutes, { prefix: '/api/integracoes' });
   app.register(dashboardRoutes, { prefix: '/api/dashboard' });
   app.register(kanbanRoutes, { prefix: '/api' });
+  app.register(configuracoesRoutes, { prefix: '/api' });
 }
