@@ -9,8 +9,7 @@
   },
   "scripts": {
     "dev": "electron .",
-    "build": "electron-builder --win portable",
-    "build:dir": "electron-builder --win dir"
+    "build": "electron-builder --win portable"
   },
   "build": {
     "appId": "com.contaflow.portable",
@@ -26,13 +25,23 @@
     ],
     "extraResources": [
       {
-        "from": "../../backend",
-        "to": "server/backend",
-        "filter": ["**/*", "!node_modules", "!.git", "!data/*.db"]
+        "from": "../../backend/dist",
+        "to": "server",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "../../backend/node_modules/.prisma",
+        "to": "server/node_modules/.prisma",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "../../backend/node_modules/@prisma",
+        "to": "server/node_modules/@prisma",
+        "filter": ["**/*"]
       },
       {
         "from": "../../frontend/dist",
-        "to": "server/frontend",
+        "to": "frontend",
         "filter": ["**/*"]
       }
     ],
@@ -44,11 +53,12 @@
         }
       ],
       "icon": "assets/icon.ico",
-      "artifactName": "ContaFlow-Portable-${version}.${ext}"
+      "artifactName": "ContaFlow-Portable-${version}.${ext}",
+      "signAndEditExecutable": false,
+      "sign": false
     },
     "portable": {
-      "artifactName": "ContaFlow-Portable-${version}.${ext}",
-      "splashImage": "assets/splash.png"
+      "artifactName": "ContaFlow-Portable-${version}.${ext}"
     }
   },
   "devDependencies": {

@@ -212,14 +212,16 @@ function createAppWindow() {
 }
 
 function startBackend(installPath, port) {
-  const serverDir = installPath || path.join(__dirname, '..', '..');
-  const serverPath = path.join(serverDir, 'backend', 'src', 'index.ts');
+  // Em producao (empacotado), os resources estao em process.resourcesPath
+  const resourcesPath = process.resourcesPath || path.join(__dirname, '..', '..');
 
-  // Tenta encontrar o executavel do backend
+  // Locais possiveis do backend bundled
   const possiblePaths = [
-    path.join(serverDir, 'server', 'index.js'),
-    path.join(serverDir, 'backend', 'dist', 'index.js'),
-    path.join(serverDir, 'backend', 'src', 'index.ts'),
+    path.join(resourcesPath, 'server', 'bundled.js'),
+    path.join(resourcesPath, 'server', 'dist', 'bundled.js'),
+    path.join(installPath || '', 'server', 'bundled.js'),
+    path.join(__dirname, '..', '..', 'backend', 'dist', 'bundled.js'),
+    path.join(__dirname, '..', '..', 'backend', 'src', 'index.ts'),
   ];
 
   let foundPath = null;
@@ -235,8 +237,16 @@ function startBackend(installPath, port) {
     return null;
   }
 
+  const serverDir = path.dirname(foundPath);
   const dataDir = getDataDir();
   const dbPath = path.join(dataDir, 'database', 'contaflow.db');
+
+  // Copia database seed se nao existir
+  const seedDb = path.join(resourcesPath, 'server', 'data', 'contaflow.db');
+  if (!fs.existsSync(dbPath) && fs.existsSync(seedDb)) {
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+    fs.copyFileSync(seedDb, dbPath);
+  }
 
   const env = {
     ...process.env,

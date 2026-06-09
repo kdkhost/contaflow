@@ -63,12 +63,15 @@ function startBackend() {
   const dataDir = getDataDir();
   const dbPath = getDbPath();
 
-  // Tenta encontrar o backend
+  // Tenta encontrar o backend bundled
   const execDir = process.env.PORTABLE_EXECUTABLE_DIR || path.dirname(process.execPath);
+  const resourcesPath = process.resourcesPath || execDir;
+
   const possiblePaths = [
-    path.join(execDir, 'server', 'backend', 'dist', 'index.js'),
-    path.join(execDir, 'server', 'backend', 'src', 'index.ts'),
-    path.join(execDir, 'backend', 'dist', 'index.js'),
+    path.join(resourcesPath, 'server', 'bundled.js'),
+    path.join(resourcesPath, 'server', 'dist', 'bundled.js'),
+    path.join(execDir, 'server', 'bundled.js'),
+    path.join(execDir, 'backend', 'dist', 'bundled.js'),
     path.join(execDir, 'backend', 'src', 'index.ts'),
   ];
 
@@ -78,7 +81,7 @@ function startBackend() {
   for (const p of possiblePaths) {
     if (fs.existsSync(p)) {
       foundPath = p;
-      cwd = path.dirname(path.dirname(path.dirname(p)));
+      cwd = path.dirname(p);
       break;
     }
   }
@@ -86,6 +89,13 @@ function startBackend() {
   if (!foundPath) {
     console.error('Backend nao encontrado no modo portable');
     return null;
+  }
+
+  // Copia database seed se nao existir
+  const seedDb = path.join(resourcesPath, 'server', 'data', 'contaflow.db');
+  if (!fs.existsSync(dbPath) && fs.existsSync(seedDb)) {
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+    fs.copyFileSync(seedDb, dbPath);
   }
 
   const env = {

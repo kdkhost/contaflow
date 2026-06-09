@@ -13,3 +13,7 @@ Thumbs.db
 *.log
 coverage/
 .cache/
+desktop/dist-portable/
+desktop/dist-electron/
+desktop/electron/node_modules/
+desktop/portable/node_modules/

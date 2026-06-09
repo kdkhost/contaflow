@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "node -r tsx -r tsconfig-paths/register src/index.ts",
-    "build": "tsc",
+    "build": "tsc --noEmit false --skipLibCheck",
     "start": "node dist/index.js",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
@@ -59,6 +59,7 @@
     "@types/nodemailer": "^6.4.15",
     "@types/supertest": "^6.0.2",
     "@types/uuid": "^9.0.8",
+    "esbuild": "^0.28.0",
     "jest": "^29.7.0",
     "prisma": "^5.10.0",
     "supertest": "^6.3.4",

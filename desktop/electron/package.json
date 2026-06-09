@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "set PORTABLE_MODE=0 && electron .",
     "build": "electron-builder --win",
-    "build:portable": "cross-env PORTABLE_MODE=1 electron-builder --win --config portable.config.js",
+    "build:portable": "electron-builder --win portable",
     "build:all": "npm run build && npm run build:portable"
   },
   "dependencies": {
@@ -19,7 +19,8 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "electron": "^29.0.0",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
   },
   "build": {
     "appId": "com.contaflow.desktop",
@@ -36,26 +37,48 @@
     ],
     "extraResources": [
       {
-        "from": "../../backend",
-        "to": "server/backend",
-        "filter": ["**/*", "!node_modules", "!.git", "!data/*.db"]
+        "from": "../../backend/dist",
+        "to": "server",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "../../backend/node_modules/.prisma",
+        "to": "server/node_modules/.prisma",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "../../backend/node_modules/@prisma",
+        "to": "server/node_modules/@prisma",
+        "filter": [
+          "**/*"
+        ]
       },
       {
         "from": "../../frontend/dist",
-        "to": "server/frontend",
-        "filter": ["**/*"]
+        "to": "frontend",
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "assets/icon.ico",
       "requestedExecutionLevel": "requireAdministrator",
-      "artifactName": "ContaFlow-Setup-${version}.${ext}"
+      "artifactName": "ContaFlow-Setup-${version}.${ext}",
+      "signAndEditExecutable": false,
+      "sign": false
     },
     "nsis": {
       "oneClick": false,
@@ -67,10 +90,7 @@
       "installerIcon": "assets/icon.ico",
       "uninstallerIcon": "assets/icon.ico",
       "installerHeaderIcon": "assets/icon.ico",
-      "license": "LICENSE.txt",
-      "language": "1046",
-      "installerLanguages": ["1046"],
-      "include": "installer.nsh"
+      "license": "LICENSE.txt"
     },
     "portable": {
       "artifactName": "ContaFlow-Portable-${version}.${ext}"
