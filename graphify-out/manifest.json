@@ -1,0 +1,482 @@
+{
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\package.json": {
+    "mtime": 1780959186.4303381,
+    "ast_hash": "8f819a06b0d88ea9e576f24cca4dfe84",
+    "semantic_hash": "8f819a06b0d88ea9e576f24cca4dfe84"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\package.json": {
+    "mtime": 1780959910.5002987,
+    "ast_hash": "af01e84658d3f72d204611ef7761e21e",
+    "semantic_hash": "af01e84658d3f72d204611ef7761e21e"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\tsconfig.json": {
+    "mtime": 1780959793.0920787,
+    "ast_hash": "a00c9d9fbeaa25fb7d2806656a45afb6",
+    "semantic_hash": "a00c9d9fbeaa25fb7d2806656a45afb6"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\logs\\.eb1dbc500e7320f0535f425fd67775d1b827f1e7-audit.json": {
+    "mtime": 1780974147.432416,
+    "ast_hash": "4a2e59aec5c4679f2fae8ca5faab2f57",
+    "semantic_hash": "4a2e59aec5c4679f2fae8ca5faab2f57"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\logs\\.f35758bc28f7a2cf0687b7dee90a6e0fc6478451-audit.json": {
+    "mtime": 1780974000.6130385,
+    "ast_hash": "ab0fe68733ef3d6416df5241c3109c6f",
+    "semantic_hash": "ab0fe68733ef3d6416df5241c3109c6f"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\prisma\\seed.ts": {
+    "mtime": 1780958225.2721376,
+    "ast_hash": "fc4787a8b56286acaba967b1e3668b6f",
+    "semantic_hash": "fc4787a8b56286acaba967b1e3668b6f"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\index.ts": {
+    "mtime": 1780962257.448762,
+    "ast_hash": "53116d5520de7f9fcbf52ddc6dafb371",
+    "semantic_hash": "53116d5520de7f9fcbf52ddc6dafb371"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\authController.ts": {
+    "mtime": 1780959983.7675273,
+    "ast_hash": "571efa4c4b5fb91cd9b412d03c1afe42",
+    "semantic_hash": "571efa4c4b5fb91cd9b412d03c1afe42"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\contabilController.ts": {
+    "mtime": 1780959984.9651961,
+    "ast_hash": "005bfe6709c8c1ea369e85a1e0bdcc55",
+    "semantic_hash": "005bfe6709c8c1ea369e85a1e0bdcc55"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\dashboardController.ts": {
+    "mtime": 1780959988.5894446,
+    "ast_hash": "82feda30fd0ae37b2bf13451c4071b48",
+    "semantic_hash": "82feda30fd0ae37b2bf13451c4071b48"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\financeiroController.ts": {
+    "mtime": 1780959985.5908332,
+    "ast_hash": "ba10e80ee20e09ca96729503647b9d5f",
+    "semantic_hash": "ba10e80ee20e09ca96729503647b9d5f"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\fiscalController.ts": {
+    "mtime": 1780959986.8786077,
+    "ast_hash": "0bbbe5e3eb4f6eb7043b4082c6ad5a95",
+    "semantic_hash": "0bbbe5e3eb4f6eb7043b4082c6ad5a95"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\graphifyController.ts": {
+    "mtime": 1780959988.5902245,
+    "ast_hash": "b21d3734d40a4834d4717d9f49a0c6e1",
+    "semantic_hash": "b21d3734d40a4834d4717d9f49a0c6e1"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\integracoesController.ts": {
+    "mtime": 1780959988.5902245,
+    "ast_hash": "13b1b2c0404b2354946bd60eee3b6d83",
+    "semantic_hash": "13b1b2c0404b2354946bd60eee3b6d83"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\controllers\\pessoalController.ts": {
+    "mtime": 1780959986.3466513,
+    "ast_hash": "d8e4500d8c52e2f50a84cad4eecfa2b2",
+    "semantic_hash": "d8e4500d8c52e2f50a84cad4eecfa2b2"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\middlewares\\auditMiddleware.ts": {
+    "mtime": 1780959994.8534358,
+    "ast_hash": "a230f2cd90399bf22f3f6635334435c8",
+    "semantic_hash": "a230f2cd90399bf22f3f6635334435c8"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\middlewares\\authMiddleware.ts": {
+    "mtime": 1780960163.2643342,
+    "ast_hash": "b6a8b4ed947a09416da2035824b20609",
+    "semantic_hash": "b6a8b4ed947a09416da2035824b20609"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\middlewares\\errorHandler.ts": {
+    "mtime": 1780959994.2008603,
+    "ast_hash": "672cb13d3f35600a921dc47da19fef6c",
+    "semantic_hash": "672cb13d3f35600a921dc47da19fef6c"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\middlewares\\tenantMiddleware.ts": {
+    "mtime": 1780957993.2288225,
+    "ast_hash": "b0bff024778e3cc871188b0eae7436aa",
+    "semantic_hash": "b0bff024778e3cc871188b0eae7436aa"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\auth.routes.ts": {
+    "mtime": 1780960095.601032,
+    "ast_hash": "b658c87bda756be9af8710fc87be2b15",
+    "semantic_hash": "b658c87bda756be9af8710fc87be2b15"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\contabil.routes.ts": {
+    "mtime": 1780960111.704962,
+    "ast_hash": "5079f132fb0f5d350b5d8e2dee9b0250",
+    "semantic_hash": "5079f132fb0f5d350b5d8e2dee9b0250"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\dashboard.routes.ts": {
+    "mtime": 1780960115.8594356,
+    "ast_hash": "061056f52bc27df37f75db82351b5f2a",
+    "semantic_hash": "061056f52bc27df37f75db82351b5f2a"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\financeiro.routes.ts": {
+    "mtime": 1780960113.8061097,
+    "ast_hash": "ab3df2c0fb5161c09a19b125edbb77ba",
+    "semantic_hash": "ab3df2c0fb5161c09a19b125edbb77ba"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\fiscal.routes.ts": {
+    "mtime": 1780960112.405453,
+    "ast_hash": "49a11671405e42cdde32c7fee33615d3",
+    "semantic_hash": "49a11671405e42cdde32c7fee33615d3"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\graphify.routes.ts": {
+    "mtime": 1780960114.483991,
+    "ast_hash": "5079470616e339834d12ddec3d36d865",
+    "semantic_hash": "5079470616e339834d12ddec3d36d865"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\index.ts": {
+    "mtime": 1780962766.0624259,
+    "ast_hash": "3f3e23c40f90fb02975a16017bbdca58",
+    "semantic_hash": "3f3e23c40f90fb02975a16017bbdca58"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\integracoes.routes.ts": {
+    "mtime": 1780960115.174143,
+    "ast_hash": "198ff4fdde281148918450dbd4f04a0c",
+    "semantic_hash": "198ff4fdde281148918450dbd4f04a0c"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\kanban.routes.ts": {
+    "mtime": 1780962749.9621887,
+    "ast_hash": "bf57a921f8f09a6a78fa58081cd5a512",
+    "semantic_hash": "bf57a921f8f09a6a78fa58081cd5a512"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\api\\routes\\pessoal.routes.ts": {
+    "mtime": 1780960113.1344166,
+    "ast_hash": "8f34b565203c67125af12eb89f4802d4",
+    "semantic_hash": "8f34b565203c67125af12eb89f4802d4"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\core\\auth\\authService.ts": {
+    "mtime": 1780960322.815722,
+    "ast_hash": "31c74e86d7f8bc32e85dd95ea2ca061e",
+    "semantic_hash": "31c74e86d7f8bc32e85dd95ea2ca061e"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\scheduler\\index.ts": {
+    "mtime": 1780959980.829178,
+    "ast_hash": "6b34964bb16998aade2b7a3dcfe78c5c",
+    "semantic_hash": "6b34964bb16998aade2b7a3dcfe78c5c"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\utils\\config.ts": {
+    "mtime": 1780957966.8175557,
+    "ast_hash": "33d412083bbdf23ccd4d96935328d4aa",
+    "semantic_hash": "33d412083bbdf23ccd4d96935328d4aa"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\utils\\database.ts": {
+    "mtime": 1780957980.5072732,
+    "ast_hash": "d940fb9b9257bdc45efbcb74a679f296",
+    "semantic_hash": "d940fb9b9257bdc45efbcb74a679f296"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\utils\\logger.ts": {
+    "mtime": 1780957975.7427106,
+    "ast_hash": "01332e4fa24ed70864571377bb66c488",
+    "semantic_hash": "01332e4fa24ed70864571377bb66c488"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\backend\\src\\workers\\index.ts": {
+    "mtime": 1780960040.7928908,
+    "ast_hash": "6cc42a87c660149ec02d8ff18ecf35a6",
+    "semantic_hash": "6cc42a87c660149ec02d8ff18ecf35a6"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\desktop\\preload.js": {
+    "mtime": 1780962407.359721,
+    "ast_hash": "d06a7f1aecc460121e12f76998de39bb",
+    "semantic_hash": "d06a7f1aecc460121e12f76998de39bb"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\desktop\\electron\\main.js": {
+    "mtime": 1780958601.3051887,
+    "ast_hash": "50536706de5bb4abbe66234f30770e31",
+    "semantic_hash": "50536706de5bb4abbe66234f30770e31"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\desktop\\electron\\package.json": {
+    "mtime": 1780958578.5558224,
+    "ast_hash": "d06b210a8caad4a7898aecbf5bbc2486",
+    "semantic_hash": "d06b210a8caad4a7898aecbf5bbc2486"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\desktop\\portable\\package.json": {
+    "mtime": 1780959051.8925996,
+    "ast_hash": "3cf9dbb505862adb731ed37c6d3e848a",
+    "semantic_hash": "3cf9dbb505862adb731ed37c6d3e848a"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\desktop\\portable\\start.js": {
+    "mtime": 1780958615.4822118,
+    "ast_hash": "74d210b49de1945ad56be8f2bbf2a741",
+    "semantic_hash": "74d210b49de1945ad56be8f2bbf2a741"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\package.json": {
+    "mtime": 1780962533.9110162,
+    "ast_hash": "c63f3e4514bde981a37c151f12a0d74b",
+    "semantic_hash": "c63f3e4514bde981a37c151f12a0d74b"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\postcss.config.js": {
+    "mtime": 1780960529.5389528,
+    "ast_hash": "470cfd3ee10fbff840b377e769485f3e",
+    "semantic_hash": "470cfd3ee10fbff840b377e769485f3e"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\tailwind.config.js": {
+    "mtime": 1780958255.2592328,
+    "ast_hash": "410def9d6b426c488868b905d09a148d",
+    "semantic_hash": "410def9d6b426c488868b905d09a148d"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\tsconfig.json": {
+    "mtime": 1780958243.375552,
+    "ast_hash": "25e9534b364071f81d05ca5e589f4363",
+    "semantic_hash": "25e9534b364071f81d05ca5e589f4363"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\tsconfig.node.json": {
+    "mtime": 1780960526.0866654,
+    "ast_hash": "c268d4b874fc483cd31925985f42f306",
+    "semantic_hash": "c268d4b874fc483cd31925985f42f306"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\vite.config.ts": {
+    "mtime": 1780958248.4664161,
+    "ast_hash": "efeeb0037a70034f0979efc56b4372d5",
+    "semantic_hash": "efeeb0037a70034f0979efc56b4372d5"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\App.tsx": {
+    "mtime": 1780962721.096072,
+    "ast_hash": "748e9d8c9dc976df06597b946cfb5654",
+    "semantic_hash": "748e9d8c9dc976df06597b946cfb5654"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\main.tsx": {
+    "mtime": 1780962666.3901374,
+    "ast_hash": "07c80d69eeb1c5471eb4169d2a932a13",
+    "semantic_hash": "07c80d69eeb1c5471eb4169d2a932a13"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\AdminLTE\\Header.tsx": {
+    "mtime": 1780958334.8364727,
+    "ast_hash": "50e172502ca088e3b0c45d9b1bc23ac2",
+    "semantic_hash": "50e172502ca088e3b0c45d9b1bc23ac2"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\AdminLTE\\Layout.tsx": {
+    "mtime": 1780958311.9161336,
+    "ast_hash": "12b3feeed30b044dc4ee9ce8fa219883",
+    "semantic_hash": "12b3feeed30b044dc4ee9ce8fa219883"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\AdminLTE\\Sidebar.tsx": {
+    "mtime": 1780962998.6587007,
+    "ast_hash": "918652790ba502f1086307e1f915a66f",
+    "semantic_hash": "918652790ba502f1086307e1f915a66f"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\AddressInput.tsx": {
+    "mtime": 1780962594.8758276,
+    "ast_hash": "3a9cc0add17320ac4cd293dda1a5eb33",
+    "semantic_hash": "3a9cc0add17320ac4cd293dda1a5eb33"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\ContaFlowCalendar.tsx": {
+    "mtime": 1780962607.7034273,
+    "ast_hash": "e01c59992e66b6161a28974ff72b7e6b",
+    "semantic_hash": "e01c59992e66b6161a28974ff72b7e6b"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\EmptyState.tsx": {
+    "mtime": 1780973524.9727619,
+    "ast_hash": "3762fdf9312ee1ff5cfd0b2108608106",
+    "semantic_hash": "3762fdf9312ee1ff5cfd0b2108608106"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\KanbanBoard.tsx": {
+    "mtime": 1780962618.076592,
+    "ast_hash": "f682b72ec053ff2c765683b9fa66cb27",
+    "semantic_hash": "f682b72ec053ff2c765683b9fa66cb27"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\Loading.tsx": {
+    "mtime": 1780962362.8803315,
+    "ast_hash": "225dae03c6ad93c2480ef5e03ccb1df5",
+    "semantic_hash": "225dae03c6ad93c2480ef5e03ccb1df5"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\MaskedInput.tsx": {
+    "mtime": 1780962580.5322673,
+    "ast_hash": "22c041d2e632a86f4f5810df0fb72856",
+    "semantic_hash": "22c041d2e632a86f4f5810df0fb72856"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\Modal.tsx": {
+    "mtime": 1780976111.5156937,
+    "ast_hash": "241113774b4ade3efcb59ab8dea4652c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\PageHeader.tsx": {
+    "mtime": 1780962371.8626268,
+    "ast_hash": "ab7b4c49ddbdcc7fc78973d694249a73",
+    "semantic_hash": "ab7b4c49ddbdcc7fc78973d694249a73"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\components\\common\\StatCard.tsx": {
+    "mtime": 1780962376.3034518,
+    "ast_hash": "56e14a5f31d6964ab0c962abafc36db3",
+    "semantic_hash": "56e14a5f31d6964ab0c962abafc36db3"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\LoginPage.tsx": {
+    "mtime": 1780973291.106201,
+    "ast_hash": "4a2e115a1767a7f61a3fd49602ebc746",
+    "semantic_hash": "4a2e115a1767a7f61a3fd49602ebc746"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Contabil\\BalancoPage.tsx": {
+    "mtime": 1780973009.3701563,
+    "ast_hash": "6437fdc05c00850e65c835cd20b0f9bb",
+    "semantic_hash": "6437fdc05c00850e65c835cd20b0f9bb"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Contabil\\ContasPage.tsx": {
+    "mtime": 1780976126.2884736,
+    "ast_hash": "783bcb565461dead52d7dbfa04c15921",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Contabil\\DREPage.tsx": {
+    "mtime": 1780972995.6513696,
+    "ast_hash": "d4ae514b76a8487a9092fe3d6aa46cff",
+    "semantic_hash": "d4ae514b76a8487a9092fe3d6aa46cff"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Contabil\\LancamentosPage.tsx": {
+    "mtime": 1780976132.717984,
+    "ast_hash": "475679da04cda7a97d21bd7f1c81085b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Dashboard\\DashboardPage.tsx": {
+    "mtime": 1780973543.8076324,
+    "ast_hash": "ec6896deaa617ad194978bca26671935",
+    "semantic_hash": "ec6896deaa617ad194978bca26671935"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Financeiro\\ContasPagarPage.tsx": {
+    "mtime": 1780976139.1215403,
+    "ast_hash": "b67b189553f7200e16ec7eb7c6cffc19",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Financeiro\\ContasReceberPage.tsx": {
+    "mtime": 1780972816.9855697,
+    "ast_hash": "803ab109121268db0e67c6abac8c948e",
+    "semantic_hash": "803ab109121268db0e67c6abac8c948e"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Financeiro\\FluxoCaixaPage.tsx": {
+    "mtime": 1780972979.5156107,
+    "ast_hash": "e5847cdd260ec820865c2cf07b0c98d0",
+    "semantic_hash": "e5847cdd260ec820865c2cf07b0c98d0"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Fiscal\\ApuracaoPage.tsx": {
+    "mtime": 1780973033.0955162,
+    "ast_hash": "1f639a9acf5b6f5846ca56107e37f294",
+    "semantic_hash": "1f639a9acf5b6f5846ca56107e37f294"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Fiscal\\CalendarioFiscalPage.tsx": {
+    "mtime": 1780973593.1669817,
+    "ast_hash": "79f2dce43503db125a0e41e33ceb061d",
+    "semantic_hash": "79f2dce43503db125a0e41e33ceb061d"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Fiscal\\NotasFiscaisPage.tsx": {
+    "mtime": 1780972965.579543,
+    "ast_hash": "86c3ca7bd4fccdc18c2749f34442cfa2",
+    "semantic_hash": "86c3ca7bd4fccdc18c2749f34442cfa2"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Fiscal\\SPEDPage.tsx": {
+    "mtime": 1780972946.2238653,
+    "ast_hash": "25e3c34ef6dc13e670240af1a0061dcd",
+    "semantic_hash": "25e3c34ef6dc13e670240af1a0061dcd"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Graphify\\IntegracoesPage.tsx": {
+    "mtime": 1780973395.7958107,
+    "ast_hash": "598740a872abf24cea0d4f8bef71a971",
+    "semantic_hash": "598740a872abf24cea0d4f8bef71a971"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Graphify\\MapaContabilPage.tsx": {
+    "mtime": 1780973380.1344447,
+    "ast_hash": "f3bf1dbd0e9d64444b58916a4b219580",
+    "semantic_hash": "f3bf1dbd0e9d64444b58916a4b219580"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Graphify\\MapaFiscalPage.tsx": {
+    "mtime": 1780973385.8138463,
+    "ast_hash": "1cf6bb497e06b50eca8aa301841c6a0c",
+    "semantic_hash": "1cf6bb497e06b50eca8aa301841c6a0c"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Graphify\\MapaTrabalhistaPage.tsx": {
+    "mtime": 1780973391.1570754,
+    "ast_hash": "1357a23fe749d7506979248e9ec5292f",
+    "semantic_hash": "1357a23fe749d7506979248e9ec5292f"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Pessoal\\ESocialPage.tsx": {
+    "mtime": 1780972923.5354576,
+    "ast_hash": "3a4298ed74ddb116ab618be59ceec53a",
+    "semantic_hash": "3a4298ed74ddb116ab618be59ceec53a"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Pessoal\\FolhaPage.tsx": {
+    "mtime": 1780972902.6918652,
+    "ast_hash": "b5801687124d093bbe34e333cea5963e",
+    "semantic_hash": "b5801687124d093bbe34e333cea5963e"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Pessoal\\FuncionariosPage.tsx": {
+    "mtime": 1780972761.4777668,
+    "ast_hash": "3023aa4c6f6b05223936f2585f6f08cb",
+    "semantic_hash": "3023aa4c6f6b05223936f2585f6f08cb"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Sistema\\CertidoesPage.tsx": {
+    "mtime": 1780973544.8755329,
+    "ast_hash": "9acc5054acd05da7267696afaa3b2d75",
+    "semantic_hash": "9acc5054acd05da7267696afaa3b2d75"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Sistema\\GestaoIntegracoesPage.tsx": {
+    "mtime": 1780973439.0128598,
+    "ast_hash": "d06214eb15385b85b45d6059d16cbb0f",
+    "semantic_hash": "d06214eb15385b85b45d6059d16cbb0f"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Sistema\\KanbanPage.tsx": {
+    "mtime": 1780973480.7069163,
+    "ast_hash": "077697b0dad1fae67bd47bc6ef201c86",
+    "semantic_hash": "077697b0dad1fae67bd47bc6ef201c86"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\pages\\Sistema\\NotificacoesPage.tsx": {
+    "mtime": 1780973465.2599509,
+    "ast_hash": "0306d33969d47325e61a7e92cc75638a",
+    "semantic_hash": "0306d33969d47325e61a7e92cc75638a"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\services\\api.ts": {
+    "mtime": 1780962990.2538962,
+    "ast_hash": "d10cdf7e881074a35706091cd530e77d",
+    "semantic_hash": "d10cdf7e881074a35706091cd530e77d"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\utils\\calendarConfig.ts": {
+    "mtime": 1780973602.4841416,
+    "ast_hash": "94f8bfebb0e79a372a6984f39cb73534",
+    "semantic_hash": "94f8bfebb0e79a372a6984f39cb73534"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\utils\\cep.ts": {
+    "mtime": 1780962558.9873736,
+    "ast_hash": "86447e35b300ed156be68401b3cf87fe",
+    "semantic_hash": "86447e35b300ed156be68401b3cf87fe"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\utils\\masks.ts": {
+    "mtime": 1780962554.0027459,
+    "ast_hash": "7027f4c8695196b7edd81fd6dbd7cff6",
+    "semantic_hash": "7027f4c8695196b7edd81fd6dbd7cff6"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\utils\\notify.ts": {
+    "mtime": 1780962574.3912578,
+    "ast_hash": "980f0f22b6fdbafe7a59e6dd48aac1bc",
+    "semantic_hash": "980f0f22b6fdbafe7a59e6dd48aac1bc"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\src\\utils\\swal.ts": {
+    "mtime": 1780973522.4457183,
+    "ast_hash": "8ba63e218285cb8f2c748e27acb0db72",
+    "semantic_hash": "8ba63e218285cb8f2c748e27acb0db72"
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\CHANGELOG.md": {
+    "mtime": 1780958625.6360438,
+    "ast_hash": "6e1208ddf87b83cfd1878702524cb590",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\README.md": {
+    "mtime": 1780958638.5310802,
+    "ast_hash": "8786f9315f14b2711a43c5728ebaa3e4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\docker\\docker-compose.yml": {
+    "mtime": 1780962400.0782773,
+    "ast_hash": "8643dffe19bbc0ba7c00bfed01e95a7e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\index.html": {
+    "mtime": 1780960497.3939924,
+    "ast_hash": "abc884149960926eef19da6b7775cc7b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\desktop\\assets\\icon.svg": {
+    "mtime": 1780962411.2565641,
+    "ast_hash": "bd9da8f9d0bc39db7f710d59f1e4b14a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\marce\\OneDrive\\Desktop\\SISTEMA CONTABIL\\contaflow\\frontend\\public\\vite.svg": {
+    "mtime": 1780960502.5839057,
+    "ast_hash": "f9e68fa6c7b9235d4fe5e4b0dc54dd80",
+    "semantic_hash": ""
+  }
+}

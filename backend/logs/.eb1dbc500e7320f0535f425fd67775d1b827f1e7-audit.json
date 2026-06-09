@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 90
+    },
+    "auditLog": "logs\\.eb1dbc500e7320f0535f425fd67775d1b827f1e7-audit.json",
+    "files": [
+        {
+            "date": 1780959850841,
+            "name": "logs\\contaflow-error-2026-06-08.log",
+            "hash": "465911a31e54bfdb945fb108d4e2dcfec6d9465263cf8629a47fb1f3fc682192"
+        },
+        {
+            "date": 1780974147431,
+            "name": "logs\\contaflow-error-2026-06-09.log",
+            "hash": "5219963874168c9ae35f467ef26c48e7b4bfa7ca955c7c83d4b2e2614529d054"
+        }
+    ],
+    "hashType": "sha256"
+}

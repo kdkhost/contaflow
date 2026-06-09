@@ -1,0 +1,952 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Para PostgreSQL (modo servidor/navegador):
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// Para SQLite (modo portatil/pendrive), descomente e comente o bloco acima:
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL_SQLITE")
+}
+
+// enum TenantStatus {
+//   ATIVO
+//   INATIVO
+//   SUSPENSO
+//   BLOQUEADO
+// }
+
+// enum UsuarioStatus {
+//   ATIVO
+//   INATIVO
+//   BLOQUEADO
+// }
+
+// enum Role {
+//   ADMIN
+//   CONTADOR_CHEFE
+//   CONTADOR_ANALISTA
+//   AUXILIAR
+//   CLIENTE_VISUALIZACAO
+// }
+
+// enum TipoLancamento {
+//   CREDITO
+//   DEBITO
+// }
+
+// enum StatusLancamento {
+//   RASCUNHO
+//   CONFIRMADO
+//   CANCELADO
+//   CONCILIADO
+// }
+
+// enum TipoNotaFiscal {
+//   NF_E
+//   NFC_E
+//   NFS_E
+//   NFSE
+// }
+
+// enum StatusNotaFiscal {
+//   PENDENTE
+//   AUTORIZADA
+//   CANCELADA
+//   INUTILIZADA
+//   DENEGADA
+// }
+
+// enum TipoEventoEsocial {
+//   S_1200
+//   S_1210
+//   S_1299
+//   S_2200
+//   S_2205
+//   S_2206
+//   S_2230
+//   S_2299
+//   S_2399
+//   S_3000
+//   S_5001
+//   S_5002
+//   S_8000
+//   S_8080
+//   S_9000
+// }
+
+// enum StatusEventoEsocial {
+//   PENDENTE
+//   ENVIADO
+//   ACEITO
+//   REJEITADO
+//   ERRO
+// }
+
+// enum TipoIntegracao {
+//   SPED_ECD
+//   SPED_ECF
+//   SPED_EFD_ICMS
+//   SPED_EFD_PIS
+//   ESOCIAL
+//   NFE
+//   NFCE
+//   NFSE
+//   DCTFWEB
+//   EFD_REINF
+//   SIMPLES_NACIONAL
+//   CERTIDAO_CONJUNTA
+//   E_CAC
+//   SINTEGRA
+//   CND
+// }
+
+// enum StatusIntegracao {
+//   ATIVO
+//   INATIVO
+//   ERRO
+//   PENDENTE
+// }
+
+// enum ModalidadeEmpresa {
+//   LUCRO_REAL
+//   LUCRO_PRESUMIDO
+//   SIMPLES_NACIONAL
+//   MEI
+// }
+
+// enum TipoContaContabil {
+//   ATIVO
+//   PASSIVO
+//   PATRIMONIO_LIQUIDO
+//   RECEITA
+//   DESPESA
+//   CUSTO
+// }
+
+// enum NaturezaConta {
+//   DEBITO
+//   CREDITO
+//   AMBOS
+// }
+
+// enum FormaPagamento {
+//   DINHEIRO
+//   PIX
+//   BOLETO
+//   CARTAO_CREDITO
+//   CARTAO_DEBITO
+//   TRANSFERENCIA
+//   CHEQUE
+//   DEBITO_AUTOMATICO
+// }
+
+// enum StatusPagamento {
+//   PENDENTE
+//   PAGO
+//   ATRASADO
+//   CANCELADO
+//   ESTORNADO
+// }
+
+// enum TipoCertificado {
+//   A1
+//   A3
+// }
+
+// enum StatusCertificado {
+//   ATIVO
+//   VENCIDO
+//   REVOGADO
+// }
+
+model Empresas {
+  id          String         @id @default(uuid()) 
+  tenantId    String         @unique @map("tenant_id")
+  razaoSocial String         @map("razao_social")
+  nomeFantasia String?       @map("nome_fantasia")
+  cnpj        String         @unique 
+  inscricaoEstadual String?  @map("inscricao_estadual") 
+  inscricaoMunicipal String? @map("inscricao_municipal") 
+  cnae        String?        
+  naturezaJuridica String?   @map("natureza_juridica")
+  endereco    String?
+  numero      String?        
+  complemento String?
+  bairro      String?
+  cidade      String?
+  uf          String?        
+  cep         String?        
+  telefone    String?        
+  email       String?        
+  website     String?
+  modalidade  String   @default("LUCRO_PRESUMIDO") // Valores: LUCRO_REAL, LUCRO_PRESUMIDO, SIMPLES_NACIONAL, MEI
+  status      String   @default("ATIVO") // Valores: ATIVO, INATIVO, SUSPENSO, BLOQUEADO
+  dataAbertura DateTime?     @map("data_abertura")
+  regimeTributario String?   @map("regime_tributario")
+  logo        String?
+  configJson  String?        @map("config_json")
+  criadoEm    DateTime       @default(now()) @map("criado_em")
+  atualizadoEm DateTime      @updatedAt @map("atualizado_em")
+
+  usuarios            Usuarios[]
+  contasContabeis     ContasContabeis[]
+  lancamentos         Lancamentos[]
+  notasFiscais        NotasFiscais[]
+  funcionarios        Funcionarios[]
+  eventosEsocial      EventosEsocial[]
+  logsAuditoria       LogsAuditoria[]
+  graphifyMapas       GraphifyMapas[]
+  integracoesGoverno  IntegracoesGoverno[]
+  contasBancarias     ContasBancarias[]
+  movimentacoesBancarias MovimentacaoBancaria[]
+  contasPagar         ContasPagar[]
+  contasReceber       ContasReceber[]
+  certificadosDigitais CertificadosDigitais[]
+  folhasPagamento     FolhasPagamento[]
+  ferias              Ferias[]
+  rescisoes           Rescisoes[]
+
+  @@map("empresas")
+}
+
+model Usuarios {
+  id          String       @id @default(uuid()) 
+  empresaId   String       @map("empresa_id") 
+  tenantId    String       @map("tenant_id")
+  nome        String
+  email       String       @unique 
+  senha       String       
+  cpf         String?      
+  telefone    String?      
+  avatar      String?
+  role        String       @default("AUXILIAR") // Valores: ADMIN, CONTADOR_CHEFE, CONTADOR_ANALISTA, AUXILIAR, CLIENTE_VISUALIZACAO
+  status      String       @default("ATIVO") // Valores: ATIVO, INATIVO, BLOQUEADO
+  ultimoAcesso DateTime?   @map("ultimo_acesso")
+  tentativasLogin Int      @default(0) @map("tentativas_login")
+  bloqueadoAte DateTime?   @map("bloqueado_ate")
+  refreshToken String?     @map("refresh_token")
+  criadoEm    DateTime     @default(now()) @map("criado_em")
+  atualizadoEm DateTime    @updatedAt @map("atualizado_em")
+
+  empresa           Empresas          @relation(fields: [empresaId], references: [id])
+  logsAuditoria     LogsAuditoria[]
+  sessoes           Sessoes[]
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@map("usuarios")
+}
+
+model Sessoes {
+  id          String   @id @default(uuid()) 
+  usuarioId   String   @map("usuario_id") 
+  tenantId    String   @map("tenant_id")
+  token       String   @unique
+  ipAddress   String?  @map("ip_address") 
+  userAgent   String?  @map("user_agent")
+  expiraEm    DateTime @map("expira_em")
+  criadoEm    DateTime @default(now()) @map("criado_em")
+
+  usuario Usuarios @relation(fields: [usuarioId], references: [id])
+
+  @@index([usuarioId])
+  @@map("sessoes")
+}
+
+model ContasContabeis {
+  id              String         @id @default(uuid()) 
+  empresaId       String         @map("empresa_id") 
+  tenantId        String         @map("tenant_id")
+  codigo          String         
+  descricao       String
+  tipo            String // Valores: ATIVO, PASSIVO, PATRIMONIO_LIQUIDO, RECEITA, DESPESA, CUSTO
+  natureza        String   @default("AMBOS") // Valores: DEBITO, CREDITO, AMBOS
+  contaPaiId      String?        @map("conta_pai_id") 
+  nivel           Int            @default(1)
+  grau           Int            @default(1)
+  aceitaLancamento Boolean       @default(false) @map("aceita_lancamento")
+  centroCusto     Boolean        @default(false) @map("centro_custo")
+  patrimonio      Boolean        @default(false)
+  resultado       Boolean        @default(false)
+  ordem           Int            @default(0)
+  observacoes     String?
+  ativa           Boolean        @default(true)
+  criadoEm        DateTime       @default(now()) @map("criado_em")
+  atualizadoEm    DateTime       @updatedAt @map("atualizado_em")
+
+  empresa         Empresas       @relation(fields: [empresaId], references: [id])
+  contaPai         ContasContabeis? @relation("HierarquiaContas", fields: [contaPaiId], references: [id])
+  contasFilhas    ContasContabeis[] @relation("HierarquiaContas")
+  lancamentos     Lancamentos[]
+
+  @@unique([empresaId, codigo])
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([contaPaiId])
+  @@map("contas_contabeis")
+}
+
+model Lancamentos {
+  id              String          @id @default(uuid()) 
+  empresaId       String          @map("empresa_id") 
+  tenantId        String          @map("tenant_id")
+  dataLancamento  DateTime        @map("data_lancamento")
+  dataContabil    DateTime        @map("data_contabil")
+  descricao       String
+  valor           Decimal         
+  tipo            String // Valores: CREDITO, DEBITO
+  numeroDocumento String?         @map("numero_documento")
+  serie           String?
+  classificacao   String?
+  competencia     String          
+  status          String   @default("RASCUNHO") // Valores: RASCUNHO, CONFIRMADO, CANCELADO, CONCILIADO
+  conciliado      Boolean         @default(false)
+  dataConciliacao DateTime?       @map("data_conciliacao")
+  observacoes     String?
+  hash            String?
+  usuarioId       String          @map("usuario_id") 
+  criadoEm        DateTime        @default(now()) @map("criado_em")
+  atualizadoEm    DateTime        @updatedAt @map("atualizado_em")
+
+  empresa         Empresas        @relation(fields: [empresaId], references: [id])
+  contaContabil   ContasContabeis @relation(fields: [contaContabilId], references: [id])
+  contaContabilId String          @map("conta_contabil_id") 
+  notaFiscalId    String?         @map("nota_fiscal_id") 
+  notaFiscal      NotasFiscais?   @relation(fields: [notaFiscalId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([contaContabilId])
+  @@index([dataLancamento])
+  @@index([competencia])
+  @@map("lancamentos")
+}
+
+model NotasFiscais {
+  id              String          @id @default(uuid()) 
+  empresaId       String          @map("empresa_id") 
+  tenantId        String          @map("tenant_id")
+  chaveAcesso     String          @unique @map("chave_acesso") 
+  numero          String          
+  serie           String          
+  tipo            String // Valores: NF_E, NFC_E, NFS_E, NFSE
+  dataEmissao     DateTime        @map("data_emissao")
+  dataEntradaSaida DateTime?      @map("data_entrada_saida")
+  cnpjEmitente    String          @map("cnpj_emitente") 
+  cnpjDestinatario String?        @map("cnpj_destinatario") 
+  razaoSocialEmitente String      @map("razao_social_emitente")
+  razaoSocialDestinatario String? @map("razao_social_destinatario")
+  valorTotal      Decimal         @map("valor_total") 
+  valorBaseIcms   Decimal?        @map("valor_base_icms") 
+  valorIcms       Decimal?        @map("valor_icms") 
+  valorBaseIpi    Decimal?        @map("valor_base_ipi") 
+  valorIpi        Decimal?        @map("valor_ipi") 
+  valorPis        Decimal?        @map("valor_pis") 
+  valorCofins     Decimal?        @map("valor_cofins") 
+  valorFrete      Decimal?        @map("valor_frete") 
+  valorSeguro     Decimal?        @map("valor_seguro") 
+  valorDesconto   Decimal?        @map("valor_desconto") 
+  valorOutrasDespesas Decimal?    @map("valor_outras_despesas") 
+  cfop            String?         
+  naturezaOperacao String?        @map("natureza_operacao")
+  status          String   @default("PENDENTE") // Valores: PENDENTE, AUTORIZADA, CANCELADA, INUTILIZADA, DENEGADA
+  xml             String?
+  protocolo       String?
+  motivoStatus    String?         @map("motivo_status")
+  processada      Boolean         @default(false)
+  contabilizada   Boolean         @default(false)
+  criadoEm        DateTime        @default(now()) @map("criado_em")
+  atualizadoEm    DateTime        @updatedAt @map("atualizado_em")
+
+  empresa         Empresas        @relation(fields: [empresaId], references: [id])
+  itens           ItensNotaFiscal[]
+  lancamentos     Lancamentos[]
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([dataEmissao])
+  @@index([cnpjEmitente])
+  @@index([status])
+  @@map("notas_fiscais")
+}
+
+model ItensNotaFiscal {
+  id              String    @id @default(uuid()) 
+  notaFiscalId    String    @map("nota_fiscal_id") 
+  tenantId        String    @map("tenant_id")
+  numeroItem      Int       @map("numero_item")
+  codigoProduto   String    @map("codigo_produto") 
+  descricao       String
+  ncm             String?   
+  cfop            String?   
+  unidadeComercial String?  @map("unidade_comercial") 
+  quantidade      Decimal   
+  valorUnitario   Decimal   @map("valor_unitario") 
+  valorTotal      Decimal   @map("valor_total") 
+  valorFrete      Decimal?  @map("valor_frete") 
+  valorSeguro     Decimal?  @map("valor_seguro") 
+  valorDesconto   Decimal?  @map("valor_desconto") 
+  valorOutrasDespesas Decimal? @map("valor_outras_despesas") 
+  baseIcms        Decimal?  @map("base_icms") 
+  aliquotaIcms    Decimal?  @map("aliquota_icms") 
+  valorIcms       Decimal?  @map("valor_icms") 
+  baseIpi         Decimal?  @map("base_ipi") 
+  aliquotaIpi     Decimal?  @map("aliquota_ipi") 
+  valorIpi        Decimal?  @map("valor_ipi") 
+  basePis         Decimal?  @map("base_pis") 
+  aliquotaPis     Decimal?  @map("aliquota_pis") 
+  valorPis        Decimal?  @map("valor_pis") 
+  baseCofins      Decimal?  @map("base_cofins") 
+  aliquotaCofins  Decimal?  @map("aliquota_cofins") 
+  valorCofins     Decimal?  @map("valor_cofins") 
+  criadoEm        DateTime  @default(now()) @map("criado_em")
+
+  notaFiscal      NotasFiscais @relation(fields: [notaFiscalId], references: [id])
+
+  @@index([notaFiscalId])
+  @@map("itens_nota_fiscal")
+}
+
+model Funcionarios {
+  id              String    @id @default(uuid()) 
+  empresaId       String    @map("empresa_id") 
+  tenantId        String    @map("tenant_id")
+  matricula       String    
+  nome            String
+  cpf             String    @unique 
+  rg              String?   
+  dataNascimento  DateTime? @map("data_nascimento")
+  sexo            String?   
+  estadoCivil     String?   @map("estado_civil") 
+  nacionalidade   String?
+  pis             String?   
+  ctps            String?   
+  cnh             String?   
+  tituloEleitor   String?   @map("titulo_eleitor") 
+  reservista      String?   
+  email           String?   
+  telefone        String?   
+  endereco        String?
+  numero          String?   
+  complemento     String?
+  bairro          String?
+  cidade          String?
+  uf              String?   
+  cep             String?   
+  cargo           String?
+  funcao          String?
+  setor           String?
+  dataAdmissao    DateTime  @map("data_admissao")
+  dataDemissao    DateTime? @map("data_demissao")
+  salario         Decimal   
+  tipoContrato   String    @default("CLT") @map("tipo_contrato")
+  jornadaTrabalho String?   @map("jornada_trabalho")
+  banco           String?
+  agencia         String?   
+  conta           String?   
+  pix             String?
+  tipoChave       String?   @map("tipo_chave")
+  situacao        String    @default("ATIVO")
+  cid             String?
+  optanteFgts     Boolean   @default(true) @map("optante_fgts")
+  optanteSimples  Boolean   @default(false) @map("optante_simples")
+  grauInstrucao   Int?      @map("grau_instrucao")
+  criadoEm        DateTime  @default(now()) @map("criado_em")
+  atualizadoEm    DateTime  @updatedAt @map("atualizado_em")
+
+  empresa         Empresas          @relation(fields: [empresaId], references: [id])
+  dependentes     Dependentes[]
+  eventosEsocial  EventosEsocial[]
+  folhasPagamento FolhasPagamento[]
+  ferias          Ferias[]
+  rescisoes       Rescisoes[]
+
+  @@unique([empresaId, matricula])
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([cpf])
+  @@map("funcionarios")
+}
+
+model Dependentes {
+  id            String   @id @default(uuid()) 
+  funcionarioId String   @map("funcionario_id") 
+  tenantId      String   @map("tenant_id")
+  nome          String
+  cpf           String?  
+  dataNascimento DateTime @map("data_nascimento")
+  parentesco    String
+  ir            Boolean  @default(false)
+  salute        Boolean  @default(false) @map("salario_familia")
+  criadoEm      DateTime @default(now()) @map("criado_em")
+
+  funcionario Funcionarios @relation(fields: [funcionarioId], references: [id])
+
+  @@index([funcionarioId])
+  @@map("dependentes")
+}
+
+model EventosEsocial {
+  id              String          @id @default(uuid()) 
+  empresaId       String          @map("empresa_id") 
+  tenantId        String          @map("tenant_id")
+  tipo            String // Valores: S_1200, S_1210, S_1299, S_2200, S_2205, S_2206, S_2230, S_2299, S_2399, S_3000, S_5001, S_5002, S_8000, S_8080, S_9000
+  codigo          String          
+  descricao       String
+  competencia     String          
+  dataEvento      DateTime        @map("data_evento")
+  dataEnvio       DateTime?       @map("data_envio")
+  dataRetorno     DateTime?       @map("data_retorno")
+  status          String   @default("PENDENTE") // Valores: PENDENTE, ENVIADO, ACEITO, REJEITADO, ERRO
+  contenido       String?
+  hash            String?
+  protocolo       String?
+  motivoStatus    String?         @map("motivo_status")
+  tentativas      Int             @default(0)
+  proximaTentativa DateTime?      @map("proxima_tentativa")
+  criadoEm        DateTime        @default(now()) @map("criado_em")
+  atualizadoEm    DateTime        @updatedAt @map("atualizado_em")
+
+  empresa         Empresas        @relation(fields: [empresaId], references: [id])
+  funcionarioId   String?         @map("funcionario_id") 
+  funcionario     Funcionarios?   @relation(fields: [funcionarioId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([tipo])
+  @@index([status])
+  @@index([competencia])
+  @@map("eventos_esocial")
+}
+
+model LogsAuditoria {
+  id              String   @id @default(uuid()) 
+  empresaId       String   @map("empresa_id") 
+  tenantId        String   @map("tenant_id")
+  usuarioId       String?  @map("usuario_id") 
+  acao            String   
+  entidade        String   
+  entidadeId      String?  @map("entidade_id") 
+  dadosAnteriores String?  @map("dados_anteriores")
+  dadosNovos      String?  @map("dados_novos")
+  ipAddress       String?  @map("ip_address") 
+  userAgent       String?  @map("user_agent")
+  endpoint        String?
+  metodo          String?  
+  statusCode      Int?     @map("status_code")
+  tempoResposta   Int?     @map("tempo_resposta")
+  criadoEm        DateTime @default(now()) @map("criado_em")
+
+  empresa  Empresas  @relation(fields: [empresaId], references: [id])
+  usuario  Usuarios? @relation(fields: [usuarioId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([usuarioId])
+  @@index([acao])
+  @@index([entidade])
+  @@index([criadoEm])
+  @@map("logs_auditoria")
+}
+
+model GraphifyMapas {
+  id          String   @id @default(uuid()) 
+  empresaId   String   @map("empresa_id") 
+  tenantId    String   @map("tenant_id")
+  tipo        String   
+  titulo      String
+  descricao   String?
+  dados       String?
+  config      String?
+  versao      Int      @default(1)
+  publico     Boolean  @default(false)
+  criadoEm    DateTime @default(now()) @map("criado_em")
+  atualizadoEm DateTime @updatedAt @map("atualizado_em")
+
+  empresa Empresas @relation(fields: [empresaId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([tipo])
+  @@map("graphify_mapas")
+}
+
+model IntegracoesGoverno {
+  id            String         @id @default(uuid()) 
+  empresaId     String         @map("empresa_id") 
+  tenantId      String         @map("tenant_id")
+  tipo          String // Valores: SPED_ECD, SPED_ECF, SPED_EFD_ICMS, SPED_EFD_PIS, ESOCIAL, NFE, NFCE, NFSE, DCTFWEB, EFD_REINF, SIMPLES_NACIONAL, CERTIDAO_CONJUNTA, E_CAC, SINTEGRA, CND
+  descricao     String
+  url           String?
+  token         String?
+  certificadoId String?        @map("certificado_id") 
+  config        String?
+  status        String   @default("PENDENTE") // Valores: ATIVO, INATIVO, ERRO, PENDENTE
+  ultimaExecucao DateTime?     @map("ultima_execucao")
+  proximaExecucao DateTime?    @map("proxima_execucao")
+  erroMensagem  String?        @map("erro_mensagem")
+  tentativas    Int            @default(0)
+  criadoEm      DateTime       @default(now()) @map("criado_em")
+  atualizadoEm  DateTime       @updatedAt @map("atualizado_em")
+
+  empresa       Empresas       @relation(fields: [empresaId], references: [id])
+  certificado   CertificadosDigitais? @relation(fields: [certificadoId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([tipo])
+  @@map("integracoes_governo")
+}
+
+model CertificadosDigitais {
+  id            String           @id @default(uuid()) 
+  empresaId     String           @map("empresa_id") 
+  tenantId      String           @map("tenant_id")
+  tipo          String // Valores: A1, A3
+  descricao     String
+  serialNumber  String?          @map("serial_number")
+  subject       String?
+  issuer        String?
+  validFrom     DateTime?        @map("valid_from")
+  validTo       DateTime?        @map("valid_to")
+  hash          String
+  arquivo       String
+  senha         String
+  status        String   @default("ATIVO") // Valores: ATIVO, VENCIDO, REVOGADO
+  criadoEm      DateTime         @default(now()) @map("criado_em")
+  atualizadoEm  DateTime         @updatedAt @map("atualizado_em")
+
+  empresa          Empresas             @relation(fields: [empresaId], references: [id])
+  integracoes      IntegracoesGoverno[]
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@map("certificados_digitais")
+}
+
+model ContasBancarias {
+  id              String   @id @default(uuid()) 
+  empresaId       String   @map("empresa_id") 
+  tenantId        String   @map("tenant_id")
+  descricao       String
+  banco           String   
+  agencia         String   
+  conta           String   
+  tipoConta       String   @map("tipo_conta")
+  saldoInicial    Decimal  @default(0) @map("saldo_inicial") 
+  saldoAtual      Decimal  @default(0) @map("saldo_atual") 
+  moeda           String   @default("BRL")
+  gerente         String?
+  telefone        String?
+  agenciaChave    String?  @map("agencia_chave")
+  ativa           Boolean  @default(true)
+  contabilizar    Boolean  @default(true) @map("contabilizar")
+  contaContabilId String?  @map("conta_contabil_id") 
+  criadoEm        DateTime @default(now()) @map("criado_em")
+  atualizadoEm    DateTime @updatedAt @map("atualizado_em")
+
+  empresa         Empresas @relation(fields: [empresaId], references: [id])
+  movimentacoes   MovimentacaoBancaria[]
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@map("contas_bancarias")
+}
+
+model MovimentacaoBancaria {
+  id              String        @id @default(uuid()) 
+  contaBancariaId String        @map("conta_bancaria_id") 
+  empresaId       String        @map("empresa_id") 
+  tenantId        String        @map("tenant_id")
+  dataMovimento   DateTime      @map("data_movimento")
+  descricao       String
+  valor           Decimal       
+  tipo            String        
+  documento       String?
+  conciliado      Boolean       @default(false)
+  dataConciliacao DateTime?     @map("data_conciliacao")
+  observacoes     String?
+  criadoEm        DateTime      @default(now()) @map("criado_em")
+
+  contaBancaria   ContasBancarias @relation(fields: [contaBancariaId], references: [id])
+  empresa         Empresas        @relation(fields: [empresaId], references: [id])
+
+  @@index([contaBancariaId])
+  @@index([dataMovimento])
+  @@map("movimentacao_bancaria")
+}
+
+model ContasPagar {
+  id              String        @id @default(uuid()) 
+  empresaId       String        @map("empresa_id") 
+  tenantId        String        @map("tenant_id")
+  descricao       String
+  fornecedor      String?
+  cnpjFornecedor  String?       @map("cnpj_fornecedor") 
+  documento       String?
+  dataVencimento  DateTime      @map("data_vencimento")
+  dataPagamento   DateTime?     @map("data_pagamento")
+  valor           Decimal       
+  valorPago       Decimal?      @map("valor_pago") 
+  desconto        Decimal?       @default(0)
+  juros           Decimal?       @default(0)
+  multa           Decimal?       @default(0)
+  formaPagamento  String?  @map("forma_pagamento") // Valores: DINHEIRO, PIX, BOLETO, CARTAO_CREDITO, CARTAO_DEBITO, TRANSFERENCIA, CHEQUE, DEBITO_AUTOMATICO
+  status          String   @default("PENDENTE") // Valores: PENDENTE, PAGO, ATRASADO, CANCELADO, ESTORNADO
+  recorrente      Boolean       @default(false)
+  periodicidade   String?
+  parcelaAtual    Int?          @map("parcela_atual")
+  totalParcelas   Int?          @map("total_parcelas")
+  contaContabilId String?       @map("conta_contabil_id") 
+  contaBancariaId String?       @map("conta_bancaria_id") 
+  centroCusto     String?       @map("centro_custo")
+  observacoes     String?
+  anexo           String?
+  criadoEm        DateTime      @default(now()) @map("criado_em")
+  atualizadoEm    DateTime      @updatedAt @map("atualizado_em")
+
+  empresa         Empresas      @relation(fields: [empresaId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([dataVencimento])
+  @@index([status])
+  @@map("contas_pagar")
+}
+
+model ContasReceber {
+  id              String        @id @default(uuid()) 
+  empresaId       String        @map("empresa_id") 
+  tenantId        String        @map("tenant_id")
+  descricao       String
+  cliente         String?
+  cpfCnpjCliente  String?       @map("cpf_cnpj_cliente") 
+  documento       String?
+  dataVencimento  DateTime      @map("data_vencimento")
+  dataRecebimento DateTime?     @map("data_recebimento")
+  valor           Decimal       
+  valorRecebido   Decimal?      @map("valor_recebido") 
+  desconto        Decimal?       @default(0)
+  juros           Decimal?       @default(0)
+  multa           Decimal?       @default(0)
+  formaPagamento  String?  @map("forma_pagamento") // Valores: DINHEIRO, PIX, BOLETO, CARTAO_CREDITO, CARTAO_DEBITO, TRANSFERENCIA, CHEQUE, DEBITO_AUTOMATICO
+  status          String   @default("PENDENTE") // Valores: PENDENTE, PAGO, ATRASADO, CANCELADO, ESTORNADO
+  recorrente      Boolean       @default(false)
+  periodicidade   String?
+  parcelaAtual    Int?          @map("parcela_atual")
+  totalParcelas   Int?          @map("total_parcelas")
+  contaContabilId String?       @map("conta_contabil_id") 
+  contaBancariaId String?       @map("conta_bancaria_id") 
+  boletoUrl       String?       @map("boleto_url")
+  nossoNumero     String?       @map("nosso_numero")
+  observacoes     String?
+  anexo           String?
+  criadoEm        DateTime      @default(now()) @map("criado_em")
+  atualizadoEm    DateTime      @updatedAt @map("atualizado_em")
+
+  empresa         Empresas      @relation(fields: [empresaId], references: [id])
+
+  @@index([empresaId])
+  @@index([tenantId])
+  @@index([dataVencimento])
+  @@index([status])
+  @@map("contas_receber")
+}
+
+model FolhasPagamento {
+  id              String   @id @default(uuid()) 
+  empresaId       String   @map("empresa_id") 
+  tenantId        String   @map("tenant_id")
+  funcionarioId   String   @map("funcionario_id") 
+  competencia     String   
+  salarioBase     Decimal  @map("salario_base") 
+  horasTrabalhadas Decimal? @map("horas_trabalhadas") 
+  horasExtras     Decimal? @map("horas_extras") 
+  valorHorasExtras Decimal? @map("valor_horas_extras") 
+  adicionais      Decimal?  @default(0)
+  descontos       Decimal?  @default(0)
+  inss            Decimal? 
+  irrf            Decimal? 
+  fgts            Decimal? 
+  valeTransporte  Decimal? @map("vale_transporte") 
+  valeRefeicao    Decimal? @map("vale_refeicao") 
+  planoSaude      Decimal? @map("plano_saude") 
+  outrosDescontos Decimal? @map("outros_descontos") 
+  outrosRecebimentos Decimal? @map("outros_recebimentos") 
+  valorLiquido    Decimal  @map("valor_liquido") 
+  status          String   @default("PENDENTE")
+  dataPagamento   DateTime? @map("data_pagamento")
+  criadoEm        DateTime @default(now()) @map("criado_em")
+  atualizadoEm    DateTime @updatedAt @map("atualizado_em")
+
+  empresa    Empresas    @relation(fields: [empresaId], references: [id])
+  funcionario Funcionarios @relation(fields: [funcionarioId], references: [id])
+
+  @@unique([funcionarioId, competencia])
+  @@index([empresaId])
+  @@index([competencia])
+  @@map("folhas_pagamento")
+}
+
+model Ferias {
+  id              String   @id @default(uuid()) 
+  empresaId       String   @map("empresa_id") 
+  tenantId        String   @map("tenant_id")
+  funcionarioId   String   @map("funcionario_id") 
+  dataInicio      DateTime @map("data_inicio")
+  dataFim         DateTime @map("data_fim")
+  dias            Int
+  abono           Boolean  @default(false)
+  diasAbono       Int?     @map("dias_abono")
+  valorFerias     Decimal  @map("valor_ferias") 
+  valorUmTerco    Decimal  @map("valor_um_terco") 
+  valorAbono      Decimal? @map("valor_abono") 
+  valorLiquido    Decimal  @map("valor_liquido") 
+  situacao        String   @default("PENDENTE")
+  observacoes     String?
+  criadoEm        DateTime @default(now()) @map("criado_em")
+  atualizadoEm    DateTime @updatedAt @map("atualizado_em")
+
+  empresa    Empresas    @relation(fields: [empresaId], references: [id])
+  funcionario Funcionarios @relation(fields: [funcionarioId], references: [id])
+
+  @@index([empresaId])
+  @@index([funcionarioId])
+  @@map("ferias")
+}
+
+model Rescisoes {
+  id              String   @id @default(uuid()) 
+  empresaId       String   @map("empresa_id") 
+  tenantId        String   @map("tenant_id")
+  funcionarioId   String   @map("funcionario_id") 
+  dataDemissao    DateTime @map("data_demissao")
+  tipoRescisao    String   @map("tipo_rescisao")
+  motivo          String?
+  avisoPrevio     Boolean  @default(true) @map("aviso_previo")
+  tipoAvisoPrevio String?  @map("tipo_aviso_previo")
+  saldoSalario    Decimal  @map("saldo_salario") 
+  decimoTerceiro  Decimal  @map("decimo_terceiro") 
+  feriasVencidas  Decimal? @map("ferias_vencidas") 
+  feriasProporcionais Decimal? @map("ferias_proporcionais") 
+  umTercoFerias   Decimal? @map("um_terco_ferias") 
+  avisoPrevioValor Decimal? @map("aviso_previo_valor") 
+  multaFgts       Decimal? @map("multa_fgts") 
+  fgts            Decimal? 
+  inss            Decimal? 
+  irrf            Decimal? 
+  outrosDescontos Decimal? @map("outros_descontos") 
+  outrosRecebimentos Decimal? @map("outros_recebimentos") 
+  valorTotal      Decimal  @map("valor_total") 
+  status          String   @default("PENDENTE")
+  dataPagamento   DateTime? @map("data_pagamento")
+  criadoEm        DateTime @default(now()) @map("criado_em")
+  atualizadoEm    DateTime @updatedAt @map("atualizado_em")
+
+  empresa    Empresas    @relation(fields: [empresaId], references: [id])
+  funcionario Funcionarios @relation(fields: [funcionarioId], references: [id])
+
+  @@index([empresaId])
+  @@index([funcionarioId])
+  @@map("rescisoes")
+}
+
+model CalendarioFiscal {
+  id          String   @id @default(uuid()) 
+  empresaId   String   @map("empresa_id") 
+  tenantId    String   @map("tenant_id")
+  titulo      String
+  descricao   String?
+  dataInicio  DateTime @map("data_inicio")
+  dataFim     DateTime @map("data_fim")
+  tipo        String
+  competencia String?  
+  obrigacao   String?
+  status      String   @default("PENDENTE")
+  lembrete    Boolean  @default(true)
+  diasLembrete Int?    @map("dias_lembrete")
+  criadoEm    DateTime @default(now()) @map("criado_em")
+  atualizadoEm DateTime @updatedAt @map("atualizado_em")
+
+  @@index([empresaId])
+  @@index([dataInicio])
+  @@index([dataFim])
+  @@map("calendario_fiscal")
+}
+
+model Notificacoes {
+  id          String   @id @default(uuid()) 
+  empresaId   String   @map("empresa_id") 
+  tenantId    String   @map("tenant_id")
+  usuarioId   String?  @map("usuario_id") 
+  titulo      String
+  mensagem    String
+  tipo        String   @default("INFO")
+  lida        Boolean  @default(false)
+  link        String?
+  criadoEm    DateTime @default(now()) @map("criado_em")
+
+  @@index([empresaId])
+  @@index([usuarioId])
+  @@index([lida])
+  @@map("notificacoes")
+}
+
+model ChatMensagens {
+  id          String   @id @default(uuid()) 
+  empresaId   String   @map("empresa_id") 
+  tenantId    String   @map("tenant_id")
+  remetenteId String   @map("remetente_id") 
+  destinatarioId String? @map("destinatario_id") 
+  canal       String   @default("GERAL")
+  mensagem    String
+  arquivo     String?
+  lida        Boolean  @default(false)
+  criadoEm    DateTime @default(now()) @map("criado_em")
+
+  @@index([empresaId])
+  @@index([canal])
+  @@map("chat_mensagens")
+}
+
+model BackupLogs {
+  id          String   @id @default(uuid()) 
+  empresaId   String   @map("empresa_id") 
+  tenantId    String   @map("tenant_id")
+  tipo        String
+  arquivo     String
+  tamanho     BigInt
+  hash        String
+  criptografado Boolean @default(true)
+  status      String   @default("CONCLUIDO")
+  erro        String?
+  criadoEm    DateTime @default(now()) @map("criado_em")
+
+  @@index([empresaId])
+  @@index([criadoEm])
+  @@map("backup_logs")
+}
+
+model KanbanTarefa {
+  id              String   @id @default(uuid())
+  empresaId       String   @map("empresa_id")
+  tenantId        String   @default("contaflow-default") @map("tenant_id")
+  titulo          String
+  descricao       String   @default("")
+  status          String   @default("PENDENTE")
+  prioridade      String   @default("medium")
+  dataVencimento  String?  @map("data_vencimento")
+  responsavel     String?
+  criadoEm        DateTime @default(now()) @map("criado_em")
+  atualizadoEm    DateTime @updatedAt @map("atualizado_em")
+
+  @@index([empresaId])
+  @@index([status])
+  @@map("kanban_tarefas")
+}

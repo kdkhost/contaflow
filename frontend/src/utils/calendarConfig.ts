@@ -1,0 +1,46 @@
+export const calendarTimezone = 'America/Sao_Paulo';
+
+export const calendarConfig = {
+  locale: 'pt-br',
+  timeZone: 'America/Sao_Paulo',
+  initialView: 'dayGridMonth',
+  headerToolbar: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+  },
+  buttonText: {
+    today: 'Hoje',
+    month: 'Mes',
+    week: 'Semana',
+    day: 'Dia',
+    list: 'Lista',
+    prev: 'Anterior',
+    next: 'Proximo',
+  },
+  allDayText: 'Dia inteiro',
+  noEventsText: 'Nenhum evento',
+  dayMaxEvents: 3,
+  weekends: true,
+  selectable: true,
+  editable: true,
+  droppable: true,
+  nowIndicator: true,
+  businessHours: {
+    daysOfWeek: [1, 2, 3, 4, 5],
+    startTime: '08:00',
+    endTime: '18:00',
+  },
+  slotMinTime: '06:00:00',
+  slotMaxTime: '22:00:00',
+  slotDuration: '00:30:00',
+  height: 'auto',
+  navLinks: true,
+  dayHeaderFormat: { weekday: 'short' as const, day: 'numeric' as const, month: 'numeric' as const },
+  titleFormat: { day: 'numeric' as const, month: 'long' as const, year: 'numeric' as const },
+  eventTimeFormat: {
+    hour: '2-digit' as const,
+    minute: '2-digit' as const,
+    meridiem: false as const,
+  },
+};
