@@ -12,7 +12,7 @@ const APP_NAME = 'ContaFlow';
 const APP_VERSION = '1.0.0';
 const DEVELOPER = {
   name: 'Marcelo Desenvolvedor',
-  phone: '(21) 98388-6010',
+  phone: '(21) 98132-5441',
   email: 'mareclobradrj@gmail.com',
 };
 

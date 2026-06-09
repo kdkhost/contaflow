@@ -7,7 +7,7 @@ export default function Footer() {
         </span>
         <span className="text-slate-600">|</span>
         <span className="text-xs text-slate-400">
-          Tel: <span className="text-slate-300">(21) 98388-6010</span>
+          Tel: <span className="text-slate-300">(21) 98132-5441</span>
         </span>
         <span className="text-slate-600">|</span>
         <span className="text-xs text-slate-400">
