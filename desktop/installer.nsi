@@ -13,10 +13,9 @@
 !define APP_EMAIL "mareclobradrj@gmail.com"
 !define APP_PHONE "(21) 98132-5441"
 !define APP_EXE "ContaFlow.exe"
-!define APP_DESC "Sistema Contabil Inteligente"
 
 Name "${APP_NAME} ${APP_VERSION}"
-OutFile "C:\Users\marce\OneDrive\Desktop\ContaFlow-Setup-1.0.0.exe"
+OutFile "C:\Users\marce\OneDrive\Desktop\ContaFlow\ContaFlow-Setup-1.0.0.exe"
 InstallDir "$PROGRAMFILES\${APP_NAME}"
 InstallDirRegKey HKLM "Software\${APP_NAME}" "InstallDir"
 RequestExecutionLevel admin
@@ -26,7 +25,7 @@ SetCompressor /SOLID lzma
 !define MUI_UNICON "C:\Users\marce\OneDrive\Desktop\SISTEMA CONTABIL\desktop\electron\assets\icon.ico"
 !define MUI_ABORTWARNING
 !define MUI_WELCOMEPAGE_TITLE "Bem-vindo ao ${APP_NAME}"
-!define MUI_WELCOMEPAGE_TEXT "Assistente de instalacao do ${APP_NAME} v${APP_VERSION}$\n$\nSistema Contabil Inteligente com multi-tenant, criptografia e integracao governamental.$\n$\nDesenvolvido por: ${APP_PUBLISHER}$\nTel: ${APP_PHONE}$\nEmail: ${APP_EMAIL}"
+!define MUI_WELCOMEPAGE_TEXT "Assistente de instalacao do ${APP_NAME} v${APP_VERSION}$\n$\nSistema Contabil Inteligente com multi-tenant e criptografia.$\n$\nDesenvolvido por: ${APP_PUBLISHER}$\nTel: ${APP_PHONE}$\nEmail: ${APP_EMAIL}"
 !define MUI_FINISHPAGE_RUN "$INSTDIR\${APP_EXE}"
 !define MUI_FINISHPAGE_RUN_TEXT "Iniciar ${APP_NAME}"
 !define MUI_FINISHPAGE_LINK "Acessar site"
@@ -42,12 +41,10 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_UNPAGE_INSTFILES
 
 !insertmacro MUI_LANGUAGE "PortugueseBR"
-!insertmacro MUI_LANGUAGE "English"
 
 Section "Principal" SecMain
   SetOutPath "$INSTDIR"
   SetOverwrite on
-
   File /r "C:\Users\marce\OneDrive\Desktop\SISTEMA CONTABIL\desktop\dist-electron\win-unpacked\*.*"
 
   CreateDirectory "$INSTDIR\.contaflow-data"

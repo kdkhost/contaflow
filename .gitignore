@@ -14,7 +14,10 @@ Thumbs.db
 coverage/
 .cache/
 desktop/dist-portable/
+desktop/dist-portable2/
+desktop/dist-pendrive/
 desktop/dist-electron/
 desktop/electron/node_modules/
 desktop/portable/node_modules/
 desktop/ContaFlow-Setup-1.0.0.exe
+mobile/node_modules/

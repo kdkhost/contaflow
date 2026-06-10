@@ -20,6 +20,16 @@ export default {
           800: '#00408c',
           900: '#002d66',
         },
+        dark: {
+          bg: '#000000',
+          card: '#1a1a2e',
+          secondary: '#16213e',
+          tertiary: '#1e293b',
+          text: '#ffffff',
+          'text-secondary': '#e2e8f0',
+          'text-muted': '#94a3b8',
+          border: '#4a5568',
+        },
         adminlte: {
           bg: '#f4f6f9',
           'bg-dark': '#1a1d21',

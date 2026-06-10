@@ -580,6 +580,47 @@ html.dark ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.5); }
 html.dark .text-muted { color: #94a3b8 !important; }
 html.light .text-muted { color: #64748b !important; }
 
+/* Force dark mode text overrides */
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-600,
+html.dark .text-gray-500,
+html.dark .text-gray-400,
+html.dark .text-gray-300 {
+  color: #ffffff !important;
+}
+html.dark .text-gray-800 { color: #ffffff !important; }
+html.dark .text-gray-500,
+html.dark .text-gray-400 { color: #e2e8f0 !important; }
+
+html.dark [class*="text-gray-"] {
+  color: #ffffff !important;
+}
+html.dark [class*="text-gray-5"],
+html.dark [class*="text-gray-4"],
+html.dark [class*="text-gray-3"] {
+  color: #e2e8f0 !important;
+}
+html.dark [class*="text-gray-6"],
+html.dark [class*="text-gray-7"],
+html.dark [class*="text-gray-8"],
+html.dark [class*="text-gray-9"] {
+  color: #ffffff !important;
+}
+
+/* Force dark mode background overrides */
+html.dark [class*="bg-gray-50"],
+html.dark [class*="bg-gray-100"],
+html.dark [class*="bg-white"] {
+  background-color: #1a1a2e !important;
+}
+
+/* Force dark mode border overrides */
+html.dark [class*="border-gray-"],
+html.dark [class*="border-white"] {
+  border-color: #4a5568 !important;
+}
+
 .text-success { color: #10b981 !important; }
 .text-danger { color: #ef4444 !important; }
 .text-warning { color: #f59e0b !important; }

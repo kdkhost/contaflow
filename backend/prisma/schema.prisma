@@ -950,3 +950,62 @@ model KanbanTarefa {
   @@index([status])
   @@map("kanban_tarefas")
 }
+
+model Configuracoes {
+  id          String   @id @default(uuid())
+  empresaId   String   @map("empresa_id")
+  tenantId    String   @map("tenant_id")
+  chave       String
+  valor       String
+  descricao   String?
+  tipo        String   @default("TEXTO")
+  criadoEm    DateTime @default(now()) @map("criado_em")
+  atualizadoEm DateTime @updatedAt @map("atualizado_em")
+
+  @@unique([empresaId, chave])
+  @@index([empresaId])
+  @@index([tenantId])
+  @@map("configuracoes")
+}
+
+model TwoFactorSecrets {
+  id          String   @id @default(uuid())
+  usuarioId   String   @map("usuario_id")
+  tenantId    String   @map("tenant_id")
+  secret      String
+  enabled     Boolean  @default(false)
+  backupCodes String?
+  criadoEm    DateTime @default(now()) @map("criado_em")
+  atualizadoEm DateTime @updatedAt @map("atualizado_em")
+
+  @@unique([usuarioId])
+  @@index([usuarioId])
+  @@map("two_factor_secrets")
+}
+
+model BiometriaCredentials {
+  id          String   @id @default(uuid())
+  usuarioId   String   @map("usuario_id")
+  tenantId    String   @map("tenant_id")
+  credentialId String  @map("credential_id")
+  publicKey   String   @map("public_key")
+  counter     Int      @default(0)
+  criadoEm    DateTime @default(now()) @map("criado_em")
+
+  @@index([usuarioId])
+  @@map("biometria_credentials")
+}
+
+model PasswordResetCodes {
+  id          String   @id @default(uuid())
+  usuarioId   String   @map("usuario_id")
+  tenantId    String   @map("tenant_id")
+  code        String
+  expiresAt   DateTime @map("expires_at")
+  used        Boolean  @default(false)
+  criadoEm    DateTime @default(now()) @map("criado_em")
+
+  @@index([usuarioId])
+  @@index([code])
+  @@map("password_reset_codes")
+}

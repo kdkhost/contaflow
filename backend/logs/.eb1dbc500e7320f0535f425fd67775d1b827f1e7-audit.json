@@ -14,6 +14,11 @@
             "date": 1780974147431,
             "name": "logs\\contaflow-error-2026-06-09.log",
             "hash": "5219963874168c9ae35f467ef26c48e7b4bfa7ca955c7c83d4b2e2614529d054"
+        },
+        {
+            "date": 1781131073740,
+            "name": "logs\\contaflow-error-2026-06-10.log",
+            "hash": "4d7ab7802c5506759f85692ca8df108324980b3bb5f49837ac52bd8bae2c0e28"
         }
     ],
     "hashType": "sha256"
